@@ -41,3 +41,12 @@ class post_book2tag(db.Model):
     book_id = db.Column(db.Integer,db.ForeignKey('Book.id'))
     tag_id = db.Column(db.Integer,db.ForeignKey('Tag.id'))
     value = db.Column(db.Float)
+
+class user_like_books(db.Model):
+    __tablename__ = 'user_like_books'
+    __table_args__ = (
+        db.PrimaryKeyConstraint('user_id', 'book_id'),
+    )
+    user_id = db.Column(db.Integer,db.ForeignKey('User.id'))
+    book_id = db.Column(db.Integer, db.ForeignKey('Book.id'))
+    value = db.Column(db.Float)
